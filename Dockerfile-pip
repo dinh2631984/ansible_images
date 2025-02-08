@@ -1,0 +1,15 @@
+FROM ubuntu
+RUN <<EOF
+apt-get update
+apt install -y netcat-openbsd traceroute iputils-ping iproute2 vim bash-completion tzdata
+ln -fs /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+dpkg-reconfigure -f noninteractive tzdata
+ENV TZ="Asia/Ho_Chi_Minh"
+echo '. /etc/bash_completion' >> /etc/bash.bashrc
+apt install -y python3-pip 
+python3 -m pip   install --user ansible --break-system-packages
+cp -a /root/.local/bin/* /usr/bin
+rm -rf /root/.local/bin/
+  history -c
+  > /root/.bash_history
+EOF
