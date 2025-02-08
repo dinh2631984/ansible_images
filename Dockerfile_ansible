@@ -1,2 +1,3 @@
-FROM ansible/ansible_pip
-ENTRYPOINT ["ansible", "--version"]
+FROM monitorsystemall/monitorsystem:ansible
+RUN apt install -qy sshpass
+CMD ["/bin/bash"]

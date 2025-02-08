@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN <<EOF
 apt-get update
-apt install -y netcat-openbsd traceroute iputils-ping iproute2 vim bash-completion tzdata
+apt install -y netcat-openbsd traceroute iputils-ping iproute2 vim bash-completion tzdata sshpass
 ln -fs /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 ENV TZ="Asia/Ho_Chi_Minh"
